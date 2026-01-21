@@ -1,7 +1,13 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'pages/index.html')
+
+def new(request):
+    return render(request, 'pages/new.html')
 
 def data(request):
-    return HttpResponse("<h1>DATA page</h1><p>Здесь будут данные</p>")
+    return render(request, 'pages/data.html')
 
 def test(request):
-    return HttpResponse("<h1>TEST page</h1><p>Здесь тестовая страница</p>")
+    return render(request, 'pages/test.html')
