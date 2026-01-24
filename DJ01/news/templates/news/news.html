@@ -1,0 +1,22 @@
+{% extends "pages/layout.html" %}
+{% block title %}Новостная страница{% endblock %}
+{% block content %}
+<h1>Новостная страница</h1>
+{% for new in news %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <h3 class="card-title">{{ new.title }}</h3>
+            <small class="text-muted">
+                <strong>Автор:</strong> {{ new.user }}
+                <strong>Дата публикации:</strong> {{ new.pub_date|date:"d.m.Y H:i" }}
+            </p>
+            <h5 class="card-subtitle mb-2 text-muted">{{ new.short_description }}</h5>
+            <hr>
+            <p class="card-text">{{ new.text }}</p>
+        </div>
+    </div>
+{% empty %}
+    <p>Новостей пока нет.</p>
+{% endfor %}
+
+{% endblock %}
